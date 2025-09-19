@@ -13,21 +13,21 @@ export default function ContactPage() {
           <h1 className="font-heading text-3xl font-semibold">Contact</h1>
           <p className="mt-2 text-ink/80">We usually respond within one business day.</p>
           <ContactForm />
-          <div className="mt-6 text-sm space-y-2">
+          {/* <div className="mt-6 text-sm space-y-2">
             <div>Email: hello@newvisionimmi.com</div>
             <div>Phone: +91 90000 00000</div>
             <div className="flex gap-3">
-              {/* <a className="text-brand hover:underline" href="https://wa.me/919000000000" aria-label="WhatsApp chat">
+              <a className="text-brand hover:underline" href="https://wa.me/919000000000" aria-label="WhatsApp chat">
                 WhatsApp
               </a>
               <a className="text-brand hover:underline" href="#" aria-label="Facebook">
                 Facebook
-              </a> */}
+              </a>
               <a className="text-brand hover:underline" href="https://www.instagram.com/newvision_immigration" aria-label="Instagram">
                 Instagram
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
         <div>
           <div className="rounded-xl border bg-white overflow-hidden">

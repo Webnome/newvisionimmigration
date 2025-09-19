@@ -204,7 +204,7 @@ export default function StartApplicationClient() {
                   <button
                     className="btn-primary disabled:opacity-50"
                     disabled={!service || !sub}
-                    onClick={() => setStep(3)}
+                    onClick={() => setStep(service === "IELTS" ? 4 : 3)}
                   >
                     Continue
                   </button>

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 const reviews = [
   { name: "Aarav (Canada)", rating: 5, text: "Smooth documentation and timely updates. Highly recommended!" },
   { name: "Meera (IELTS 7.5)", rating: 5, text: "Great strategies and practice plans. Scored beyond my target." },
-  { name: "Dylan (UK)", rating: 5, text: "Clear guidance for my work visa process." },
+  // { name: "Dylan (UK)", rating: 5, text: "Clear guidance for my work visa process." },
 ]
 
 export function ReviewsCarousel() {

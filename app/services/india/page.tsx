@@ -67,13 +67,18 @@ export default function IndianServicesPage() {
               <ServiceInquiryForm service="Indian Services" />
             </div>
           </div>
-          {/* <aside className="md:col-span-5">
+          <aside className="md:col-span-5">
             <div className="rounded-xl border bg-white overflow-hidden shadow-sm">
-              <div
+              <img
+                src="/advisors-helping-with-documents.png"
+                alt="Visa illustration"
+                className="w-full h-full object-contain"
+              />
+              {/* <div
                 className="h-40 w-full bg-[url('/consultants-helping-with-documents.png')] bg-cover bg-center"
                 aria-hidden="true"
-              />
-              <div className="p-5 md:p-6">
+              /> */}
+              {/* <div className="p-5 md:p-6">
                 <h3 className="text-lg font-semibold text-[#1E2E5A]">How we help</h3>
                 <ul className="mt-3 space-y-2 text-[#606F85] list-disc pl-5">
                   <li>Confirm the right category for your case</li>
@@ -95,9 +100,9 @@ export default function IndianServicesPage() {
                     Speak to an Advisor
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
-          </aside> */}
+          </aside>
         </div>
       </section>
     </main>

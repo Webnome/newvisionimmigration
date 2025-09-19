@@ -112,12 +112,12 @@ export default function ServiceInquiryForm({ service }: { service?: string }) {
         >
           {loading ? "Sending..." : "Submit"}
         </button>
-        <a
+        {/* <a
           href="/start-application?service=indian"
-          className="h-10 rounded-md border px-4 text-sm text-[#1E2E5A] hover:text-[#0061FF]"
+          className="h-10 rounded-md border px-4 bg-[#0e2a47] text-sm text-white hover:text-[#0061FF]"
         >
           Start Application
-        </a>
+        </a> */}
       </div>
     </form>
   )
