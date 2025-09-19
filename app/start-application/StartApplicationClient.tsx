@@ -137,7 +137,9 @@ export default function StartApplicationClient() {
                   <button className="btn-outline" onClick={() => setStep(1)} disabled>
                     Back
                   </button>
-                  <button className="btn-primary" onClick={() => setStep(isIndian ? 3 : 2)}>
+                  <button className={`btn-primary ${!form.name && !form.email ? "disabled:opacity-50 disabled:cursor-not-allowed" : ""}`}
+                  disabled={!form.name || !form.email}
+                  onClick={() => setStep(isIndian ? 3 : 2)}>
                     Continue
                   </button>
                 </div>
