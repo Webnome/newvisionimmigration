@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import FileUploader from "../../components/file-uploader"
+import { se } from "date-fns/locale"
 
 type Service = "Visa" | "IELTS" | "PTE" | "Spoken English" | "Indian Services"
 const subOptions: Record<Service, string[]> = {
@@ -159,7 +160,7 @@ export default function StartApplicationClient() {
             )}
 
             {/* Step 2: Service (skip for Indian Services) */}
-            {step === 2 && !isIndian && (
+            {step === 2 && (
               <div className="card">
                 <h2 className="font-semibold text-[#1E2E5A]">Select your service</h2>
                 <div className="mt-3 grid grid-cols-2 gap-3">
@@ -204,7 +205,7 @@ export default function StartApplicationClient() {
                   <button
                     className="btn-primary disabled:opacity-50"
                     disabled={!service || !sub}
-                    onClick={() => setStep(service === "IELTS" ? 4 : 3)}
+                    onClick={() => setStep(service === "Visa" || isIndian ? 3 : 4)}
                   >
                     Continue
                   </button>
