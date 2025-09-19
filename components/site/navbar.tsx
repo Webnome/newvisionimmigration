@@ -59,8 +59,8 @@ export function Navbar() {
   }, [])
 
   return (
-    <header className="bg-brand text-white">
-      <div ref={navRef} className="container-balanced flex items-center justify-between py-4">
+    <header ref={navRef} className="bg-brand text-white">
+      <div className="container-balanced flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/images/logo.png" alt="New Vision Immigration logo" width={44} height={44} />
           <span className="sr-only">New Vision Immigration</span>

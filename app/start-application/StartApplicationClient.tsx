@@ -19,6 +19,7 @@ export default function StartApplicationClient() {
   const [service, setService] = useState<Service | "">("")
   const [sub, setSub] = useState<string>("")
   const [form, setForm] = useState({ name: "", email: "", country: "", notes: "" })
+  const [emailError, setEmailError] = useState<string | null>(null)
   const [schedule, setSchedule] = useState<{ date?: string; time?: string }>({})
   const [docs, setDocs] = useState<UploadedFile[]>([])
   const [submitted, setSubmitted] = useState(false)
@@ -111,10 +112,21 @@ export default function StartApplicationClient() {
                   <label className="block text-sm font-medium text-[#1E2E5A]">Email</label>
                   <input
                     type="email"
-                    className="mt-1 w-full rounded-md border px-3 py-2"
+                    className={`mt-1 w-full rounded-md border px-3 py-2 ${emailError ? "border-red-500" : ""}`}
                     value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    onChange={(e) => {
+                      const email = e.target.value
+                      setForm({ ...form, email })
+                      if (email === "") {
+                        setEmailError(null)
+                      } else if (!/\S+@\S+\.\S+/.test(email)) {
+                        setEmailError("Please enter a valid email address.")
+                      } else {
+                        setEmailError(null)
+                      }
+                    }}
                   />
+                  {emailError && <p className="mt-1 text-sm text-red-500">{emailError}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1E2E5A]">Current country (optional)</label>
@@ -137,8 +149,8 @@ export default function StartApplicationClient() {
                   <button className="btn-outline" onClick={() => setStep(1)} disabled>
                     Back
                   </button>
-                  <button className={`btn-primary ${!form.name && !form.email ? "disabled:opacity-50 disabled:cursor-not-allowed" : ""}`}
-                  disabled={!form.name || !form.email}
+                  <button className={`btn-primary ${(!form.name || !form.email || emailError) ? "disabled:opacity-50 disabled:cursor-not-allowed" : ""}`}
+                  disabled={!form.name || !form.email || !!emailError}
                   onClick={() => setStep(isIndian ? 3 : 2)}>
                     Continue
                   </button>
