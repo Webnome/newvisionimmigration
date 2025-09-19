@@ -244,13 +244,13 @@
   background-color: #dbe3f0;
 }
 
-body::after {
+/* body::after {
   content: "";
   background-image: url('/images/logo-gs.png');
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  background-size: cover;   /* makes it stretch to cover the whole page */
+  background-size: cover;
   opacity: 0.1;
   position: fixed;
   top: 0;
@@ -259,4 +259,4 @@ body::after {
   height: 100%;
   z-index: -1;
   pointer-events: none;
-}
+} */

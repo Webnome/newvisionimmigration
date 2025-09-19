@@ -18,10 +18,10 @@ export function ReviewsCarousel() {
   const r = reviews[i]
 
   return (
-    <section className="section bg-white">
+    <section className="section bg-brand">
       <div className="container-balanced">
-        <h3 className="font-heading text-2xl font-semibold text-center">What Clients Say</h3>
-        <div className="mt-6 mx-auto max-w-2xl rounded-xl border p-6 text-center">
+        <h3 className="font-heading text-2xl font-semibold text-center text-white">What Clients Say</h3>
+        <div className="mt-6 mx-auto max-w-2xl rounded-xl border p-6 text-center bg-white shadow-lg">
           <div className="text-accent mb-1" aria-label={`${r.rating} star rating`}>
             {"★★★★★".slice(0, r.rating)}
           </div>

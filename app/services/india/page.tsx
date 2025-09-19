@@ -84,13 +84,13 @@ export default function IndianServicesPage() {
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a
                     href="/start-application?service=indian"
-                    className="h-10 rounded-md bg-[#0061FF] hover:bg-[#1E90FF] text-white px-4 text-sm"
+                    className="h-7 rounded-md bg-[#0061FF] hover:bg-[#1E90FF] text-white px-4 text-sm"
                   >
                     Start Application
                   </a>
                   <a
                     href="/contact?subject=Indian%20Services"
-                    className="h-10 rounded-md border px-4 text-sm text-[#1E2E5A] hover:text-[#0061FF]"
+                    className="h-7 rounded-md border px-4 text-sm text-[#1E2E5A] hover:text-[#0061FF]"
                   >
                     Speak to an Advisor
                   </a>

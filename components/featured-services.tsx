@@ -1,12 +1,8 @@
 import Link from "next/link"
+import { IndianServices } from "./indian-services"
+import { CoachingSupport } from "./coaching-support"
 
 const visaCats = ["Tourist", "Study", "Family", "Work/Sponsor"]
-const coaching = [
-  { title: "IELTS Academic", href: "/coaching#ielts-academic" },
-  { title: "IELTS General", href: "/coaching#ielts-general" },
-  { title: "PTE Academic", href: "/coaching#pte" },
-  { title: "Spoken English (In-person)", href: "/coaching#spoken" },
-]
 
 export function FeaturedServices() {
   return (
@@ -28,49 +24,7 @@ export function FeaturedServices() {
         </div>
 
         {/* Indian Services */}
-        <div className="md:col-span-2 order-first md:order-first md:-mt-2" id="indian-services-home">
-          <h3 className="font-heading text-xl md:text-2xl font-semibold" style={{ color: "#1E2E5A" }}>
-            Indian Services
-          </h3>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-xl border p-5 bg-white">
-              <h4 className="font-semibold text-[#1E2E5A]">Indian Police Clearance Certificate (PCC)</h4>
-              <p className="mt-2 text-sm text-[#606F85]">
-                Who needs it, required documents, timelines, and our end‑to‑end guidance.
-              </p>
-              <Link href="/services/india/pcc" className="mt-3 inline-flex text-[#0061FF] hover:underline">
-                Learn more →
-              </Link>
-            </div>
-            <div className="rounded-xl border p-5 bg-white">
-              <h4 className="font-semibold text-[#1E2E5A]">Indian Passport</h4>
-              <p className="mt-2 text-sm text-[#606F85]">
-                Adult, Minor, New Born, Surrender, Lost/Damaged — what to prepare and how we assist.
-              </p>
-              <Link href="/services/india/passport" className="mt-3 inline-flex text-[#0061FF] hover:underline">
-                Learn more →
-              </Link>
-            </div>
-            <div className="rounded-xl border p-5 bg-white">
-              <h4 className="font-semibold text-[#1E2E5A]">OCI Card</h4>
-              <p className="mt-2 text-sm text-[#606F85]">
-                New OCI, lost/damaged replacement, and address/occupation updates with proper specs.
-              </p>
-              <Link href="/services/india/oci" className="mt-3 inline-flex text-[#0061FF] hover:underline">
-                Learn more →
-              </Link>
-            </div>
-            <div className="rounded-xl border p-5 bg-white">
-              <h4 className="font-semibold text-[#1E2E5A]">Other Indian Services</h4>
-              <p className="mt-2 text-sm text-[#606F85]">
-                Power of Attorney, Affidavits, Certificates, and Driver License Verification guidance.
-              </p>
-              <Link href="/services/india/other" className="mt-3 inline-flex text-[#0061FF] hover:underline">
-                Learn more →
-              </Link>
-            </div>
-          </div>
-        </div>
+        <IndianServices />
 
         {/* Visa Categories */}
         <div>
@@ -92,22 +46,7 @@ export function FeaturedServices() {
         </div>
 
         {/* Coaching */}
-        <div>
-          <h3 className="font-heading text-xl md:text-2xl font-semibold" style={{ color: "#1E2E5A" }}>
-            Coaching
-          </h3>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-            {coaching.map((c) => (
-              <Link
-                key={c.title}
-                href={c.href}
-                className="rounded-xl border p-4 hover:border-[#0061FF] transition-colors bg-white"
-              >
-                {c.title}
-              </Link>
-            ))}
-          </div>
-        </div>
+        <CoachingSupport />
       </div>
     </section>
   )

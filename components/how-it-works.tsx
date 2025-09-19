@@ -6,9 +6,12 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-12 md:py-16 bg-[#F5F7FA]">
+    <section className="py-12 md:py-16 
+    // bg-[#F5F7FA]
+    bg-brand
+    ">
       <div className="container-balanced">
-        <h2 className="font-heading text-2xl md:text-3xl font-semibold text-[#1E2E5A] text-center">How It Works</h2>
+        <h2 className="font-heading text-2xl md:text-3xl font-semibold text-[#F5F7FA] text-center">How It Works</h2>
 
         <div className="mt-6 md:mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {steps.map((s) => (
