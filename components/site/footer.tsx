@@ -50,6 +50,30 @@ export function Footer() {
                 +91 90000 00000
               </a>
             </li>
+            <li>
+            <a href="tel:+918708962314" className="hover:underline">
+              +91 87089 62314
+            </a>
+            <span className="text-sm text-gray-500 ml-2">For all queries</span>
+          </li>
+          <li>
+            <a href="tel:+919053834979" className="hover:underline">
+              +91 90538 34979
+            </a>
+            <span className="text-sm text-gray-500 ml-2">WhatsApp</span>
+          </li>
+          <li>
+            <a href="tel:+919896426667" className="hover:underline">
+              +91 98964 26667
+            </a>
+            <span className="text-sm text-gray-500 ml-2">IELTS & PTE</span>
+          </li>
+          <li>
+            <a href="tel:+919053303109" className="hover:underline">
+              +91 90533 03109
+            </a>
+            <span className="text-sm text-gray-500 ml-2">Study & Visitor Visa</span>
+          </li>
             {/* <li>Mon–Sat, 10:00–18:00</li> */}
           </ul>
         </div>
