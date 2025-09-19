@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { IndianServices } from "./indian-services"
 import { CoachingSupport } from "./coaching-support"
-
-const visaCats = ["Tourist", "Study", "Family", "Work/Sponsor"]
+import { VisaCategories } from "./visa-categories"
 
 export function FeaturedServices() {
   return (
@@ -27,26 +26,14 @@ export function FeaturedServices() {
         <IndianServices />
 
         {/* Visa Categories */}
-        <div>
-          <h3 className="font-heading text-xl md:text-2xl font-semibold" style={{ color: "#1E2E5A" }}>
-            Visa Categories
-          </h3>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            {visaCats.map((v) => (
-              <div key={v} className="rounded-xl border p-4 hover:border-[#0061FF] transition-colors bg-white">
-                {v}
-              </div>
-            ))}
-          </div>
-          <div className="mt-4">
-            <Link href="/visa" className="text-[#0061FF] font-medium hover:underline">
-              Explore Visa Services →
-            </Link>
-          </div>
+        <div className="md:col-span-2">
+          <VisaCategories />
         </div>
 
         {/* Coaching */}
-        <CoachingSupport />
+        <div className="md:col-span-2">
+          <CoachingSupport />
+        </div>
       </div>
     </section>
   )

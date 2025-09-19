@@ -67,7 +67,7 @@ export default function IndianServicesPage() {
               <ServiceInquiryForm service="Indian Services" />
             </div>
           </div>
-          <aside className="md:col-span-5">
+          {/* <aside className="md:col-span-5">
             <div className="rounded-xl border bg-white overflow-hidden shadow-sm">
               <div
                 className="h-40 w-full bg-[url('/consultants-helping-with-documents.png')] bg-cover bg-center"
@@ -97,7 +97,7 @@ export default function IndianServicesPage() {
                 </div>
               </div>
             </div>
-          </aside>
+          </aside> */}
         </div>
       </section>
     </main>
