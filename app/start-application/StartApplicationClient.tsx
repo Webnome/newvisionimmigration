@@ -242,7 +242,7 @@ export default function StartApplicationClient() {
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <button className="btn-outline" onClick={() => setStep(isIndian ? 1 : 2)}>
+                  <button className="btn-outline" onClick={() => setStep(2)}>
                     Back
                   </button>
                   <button
