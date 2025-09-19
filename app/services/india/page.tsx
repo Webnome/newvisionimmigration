@@ -2,7 +2,7 @@ import ServiceInquiryForm from "@/components/service-inquiry-form"
 
 export default function IndianServicesPage() {
   return (
-    <main className="bg-[#F5F7FA]">
+    <main>
       <section className="container-balanced py-10 md:py-12">
         <h1 className="text-3xl md:text-4xl font-bold text-[#1E2E5A]">Indian Services</h1>
         <p className="mt-2 max-w-3xl text-[#606F85]">
