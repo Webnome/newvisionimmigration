@@ -11,7 +11,7 @@ export function CoachingSupport() {
   return (
     <div className="grid md:grid-cols-2 gap-6 items-start">
       {/* Left side → Image */}
-      <div className="flex justify-center items-start">
+      <div className="flex justify-center items-start max-w-xs mx-auto">
         <img
           src="/ielts-score-8-0.png"
           alt="Coaching illustration"

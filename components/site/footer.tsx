@@ -41,13 +41,13 @@ export function Footer() {
           <h4 className="font-semibold mb-3">Contact</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="mailto:hello@newvisionimmi.com" className="hover:underline">
-                hello@newvisionimmi.com
+              <a href="mailto:ceo@newvisionimmi.com" className="hover:underline">
+                ceo@newvisionimmi.com
               </a>
             </li>
             <li>
-              <a href="tel:+919000000000" className="hover:underline">
-                +91 90000 00000
+              <a href="mailto:info@newvisionimmi.com" className="hover:underline">
+                info@newvisionimmi.com
               </a>
             </li>
             <li>
@@ -83,7 +83,7 @@ export function Footer() {
             {/* <a href="#" className="hover:underline">
               Facebook
             </a> */}
-            <a href="https://instagram.com/newvisionimmi" className="hover:underline">
+            <a href="https://www.instagram.com/newvision_immigration" className="hover:underline">
               Instagram
             </a>
             {/* <a href="#" className="hover:underline">

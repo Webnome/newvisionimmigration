@@ -34,7 +34,7 @@ export function VisaCategories() {
       </div>
 
       {/* Right side */}
-      <div className="flex justify-center items-start">
+      <div className="flex justify-center items-start max-w-xs mx-auto">
         <img
           src="/visa-approval-stamp.png"
           alt="Visa illustration"

@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               logo: "https://example.com/images/logo.png",
               sameAs: [
                 "https://facebook.com/newvisionimmi",
-                "https://instagram.com/newvisionimmi",
+                "https://www.instagram.com/newvision_immigration",
                 "https://www.linkedin.com/company/newvisionimmi",
               ],
               contactPoint: {

@@ -23,7 +23,7 @@ export default function ContactPage() {
               <a className="text-brand hover:underline" href="#" aria-label="Facebook">
                 Facebook
               </a> */}
-              <a className="text-brand hover:underline" href="https://instagram.com/newvisionimmi" aria-label="Instagram">
+              <a className="text-brand hover:underline" href="https://www.instagram.com/newvision_immigration" aria-label="Instagram">
                 Instagram
               </a>
             </div>
