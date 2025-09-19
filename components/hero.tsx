@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-surface">
+    <section className="overflow-hidden bg-surface">
       <div className="container-balanced py-16 md:py-24 grid gap-8 md:grid-cols-2 items-center">
         <div className="reveal revealed">
           <h1 className="font-heading text-3xl md:text-5xl font-bold text-balance text-ink">
@@ -22,7 +22,7 @@ export function Hero() {
           <div className="mt-6 text-sm text-ink/60">5,000+ Clients • 95% Success • 10+ Years Experience</div>
         </div>
         <div
-          className="relative aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden bg-white border shadow-inner reveal"
+          className="relative aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden bg-white border shadow-inner"
           aria-label="Hero illustration"
         >
           <img

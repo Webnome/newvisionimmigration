@@ -95,7 +95,7 @@ export function Navbar() {
                 {hasMega && isOpen && (
                   <div
                     role="menu"
-                    className="absolute left-1/2 -translate-x-1/2 mt-3 w-[620px] rounded-xl border border-white/10 bg-white text-ink shadow-2xl p-4 data-[state=open]:animate-in"
+                    className="absolute left-1/2 -translate-x-1/2 mt-3 z-10 w-[620px] rounded-xl border border-white/10 bg-white text-ink shadow-2xl p-4 data-[state=open]:animate-in"
                   >
                     <div className="grid grid-cols-2 gap-2">
                       {item.mega!.map((m) => (
