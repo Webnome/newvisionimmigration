@@ -243,3 +243,20 @@
   @apply hidden md:block h-px flex-1;
   background-color: #dbe3f0;
 }
+
+body::after {
+  content: "";
+  background-image: url('/images/logo-gs.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;   /* makes it stretch to cover the whole page */
+  opacity: 0.1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}

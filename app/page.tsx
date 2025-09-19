@@ -19,10 +19,10 @@ export default function HomePage() {
       <QuickServices />
       <HowItWorks />
       <FeaturedServices />
-      <StatsBar />
       <ReviewsCarousel />
       <FAQPreview />
-      <FinalCTA />
+      <StatsBar />
+      {/* <FinalCTA /> */}
 
       {/* JSON-LD Services */}
       <script

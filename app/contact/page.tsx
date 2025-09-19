@@ -17,14 +17,14 @@ export default function ContactPage() {
             <div>Email: hello@newvisionimmi.com</div>
             <div>Phone: +91 90000 00000</div>
             <div className="flex gap-3">
-              <a className="text-brand hover:underline" href="https://wa.me/919000000000" aria-label="WhatsApp chat">
+              {/* <a className="text-brand hover:underline" href="https://wa.me/919000000000" aria-label="WhatsApp chat">
                 WhatsApp
-              </a>
-              <a className="text-brand hover:underline" href="#" aria-label="Instagram">
-                Instagram
               </a>
               <a className="text-brand hover:underline" href="#" aria-label="Facebook">
                 Facebook
+              </a> */}
+              <a className="text-brand hover:underline" href="https://instagram.com/newvisionimmi" aria-label="Instagram">
+                Instagram
               </a>
             </div>
           </div>

@@ -50,21 +50,21 @@ export function Footer() {
                 +91 90000 00000
               </a>
             </li>
-            <li>Mon–Sat, 10:00–18:00</li>
+            {/* <li>Mon–Sat, 10:00–18:00</li> */}
           </ul>
         </div>
         <div>
           <h4 className="font-semibold mb-3">Follow</h4>
-          <div className="flex gap-3 text-sm">
-            <a href="#" className="hover:underline">
+          <div className="flex flex-col gap-3 text-sm">
+            {/* <a href="#" className="hover:underline">
               Facebook
-            </a>
-            <a href="#" className="hover:underline">
+            </a> */}
+            <a href="https://instagram.com/newvisionimmi" className="hover:underline">
               Instagram
             </a>
-            <a href="#" className="hover:underline">
+            {/* <a href="#" className="hover:underline">
               LinkedIn
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
