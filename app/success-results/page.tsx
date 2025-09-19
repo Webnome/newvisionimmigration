@@ -3,6 +3,8 @@
 import { useMemo, useState } from "react"
 import Image from "next/image"
 
+import { useEffect } from "react"
+
 type Item = {
   id: string
   category: "Visas" | "IELTS/PTE"
@@ -10,16 +12,23 @@ type Item = {
   src: string
 }
 
-const items: Item[] = [
-  { id: "1", category: "Visas", caption: "Canada Study Visa Approved", src: "/canada-study-visa-approval.png" },
-  { id: "2", category: "Visas", caption: "UK Family Visa Approved", src: "/uk-family-visa-approval.png" },
-  { id: "3", category: "IELTS/PTE", caption: "IELTS Band 8 Achieved", src: "/ielts-band-8-scorecard.png" },
-  { id: "4", category: "IELTS/PTE", caption: "PTE 79+ Achieved", src: "/pte-79-scorecard.png" },
-]
+// const items: Item[] = [
+//   { id: "1", category: "Visas", caption: "Canada Study Visa Approved", src: "/canada-study-visa-approval.png" },
+//   { id: "2", category: "Visas", caption: "UK Family Visa Approved", src: "/uk-family-visa-approval.png" },
+//   { id: "3", category: "IELTS/PTE", caption: "IELTS Band 8 Achieved", src: "/ielts-band-8-scorecard.png" },
+//   { id: "4", category: "IELTS/PTE", caption: "PTE 79+ Achieved", src: "/pte-79-scorecard.png" },
+// ]
 
 export default function SuccessResultsPage() {
+  const [items, setItems] = useState<Item[]>([])
   const [filter, setFilter] = useState<"All" | "Visas" | "IELTS/PTE">("All")
   const [active, setActive] = useState<Item | null>(null)
+
+  useEffect(() => {
+    fetch("/success-results.json")
+      .then((res) => res.json())
+      .then((data: Item[]) => setItems(data))
+  }, [])
 
   const filtered = useMemo(() => (filter === "All" ? items : items.filter((i) => i.category === filter)), [filter])
 
@@ -62,13 +71,21 @@ export default function SuccessResultsPage() {
               onClick={() => setActive(it)}
               aria-label={`Open ${it.caption}`}
             >
-              <Image
+
+              {it.src.endsWith(".pdf") ? (
+                <a href={it.src} target="_blank" rel="noopener noreferrer" className="block border p-4">
+                  {it.caption} (PDF)
+                </a>
+              ) : (
+                <Image src={it.src} alt={it.caption} width={900} height={600} className="w-full h-auto transition-transform group-hover:scale-[1.02]" />
+              )}
+              {/* <Image
                 src={it.src || "/placeholder.svg"}
                 alt={it.caption}
                 width={900}
                 height={600}
                 className="w-full h-auto transition-transform group-hover:scale-[1.02]"
-              />
+              /> */}
               <div className="absolute bottom-0 left-0 right-0 bg-ink/70 text-white text-sm p-2">{it.caption}</div>
             </button>
           ))}

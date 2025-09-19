@@ -87,11 +87,11 @@ export default function CoachingPage() {
           </div>
         </section>
 
-        <section>
+        {/* <section>
           <a href="/success-stories" className="text-brand font-medium hover:underline">
             See Success Highlights →
           </a>
-        </section>
+        </section> */}
       </div>
     </div>
   )
