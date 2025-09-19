@@ -19,11 +19,12 @@ export default function StartApplicationClient() {
   const [step, setStep] = useState<Step>(1)
   const [service, setService] = useState<Service | "">("")
   const [sub, setSub] = useState<string>("")
-  const [form, setForm] = useState({ name: "", email: "", country: "", notes: "" })
+  const [form, setForm] = useState({ name: "", email: "",mobile:"", country: "", notes: "" })
   const [emailError, setEmailError] = useState<string | null>(null)
   const [schedule, setSchedule] = useState<{ date?: string; time?: string }>({})
   const [docs, setDocs] = useState<UploadedFile[]>([])
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const saved = localStorage.getItem("nv-wizard")
@@ -128,6 +129,33 @@ export default function StartApplicationClient() {
                     }}
                   />
                   {emailError && <p className="mt-1 text-sm text-red-500">{emailError}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#1E2E5A]">Mobile No</label>
+                  <input
+                      type="tel"
+                      inputMode="numeric"
+                      pattern="[0-9]{10}"
+                      maxLength={10}
+                      placeholder="Enter 10-digit mobile number"
+                      className="mt-1 w-full rounded-md border px-3 py-2"
+                      value={form.mobile}
+                      required
+                      onChange={(e) =>{
+                        const mobile = e.target.value;
+                        if (!mobile) {
+                        setError("Mobile number is required");
+                      } else if (mobile.length < 10) {
+                        setError("Mobile number must be at least 10 digits");
+                      } else {
+                        setError("");
+                      }
+                        setForm({ ...form, mobile: e.target.value })
+
+                      } 
+                    }
+                    />
+                    {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1E2E5A]">Current country (optional)</label>
@@ -310,6 +338,9 @@ export default function StartApplicationClient() {
                   </div>
                   <div>
                     <strong>Email:</strong> {form.email}
+                  </div>
+                  <div>
+                    <strong>Mobile No:</strong> {form.mobile}
                   </div>
                   <div>
                     <strong>Country:</strong> {form.country || "-"}
