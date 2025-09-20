@@ -16,7 +16,7 @@ export default function ServiceInquiryForm({ service }: { service?: string }) {
     const form = e.currentTarget
     const formData = new FormData(form)
     try {
-      const res = await fetch("/api/inquiry", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_PUBLIC_URL}/api/indian-service-inquiry`, {
         method: "POST",
         body: JSON.stringify({
           name: formData.get("name"),

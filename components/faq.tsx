@@ -15,6 +15,30 @@ const faqs = [
     q: "Do you guarantee approvals?",
     a: "We provide documentation guidance; final decisions rest with immigration authorities.",
   },
+{
+    q: "What services do you offer?",
+    a: "We specialize in documentation assistance for various government services, including IELTS/PTE and spoken support, Indian Police Clearance Certificate (PCC), Indian Passport Renewal, OCI (Overseas Citizen of India) Card, and Indian E-visa.",
+  },
+  {
+    q: "Do you help with IELTS/PTE and spoken support?",
+    a: "Yes, we assist with documentation and guidance related to IELTS/PTE and spoken preparation.",
+  },
+  {
+    q: "Can you assist with Indian Police Clearance Certificate (PCC)?",
+    a: "We guide you through the documentation process for obtaining an Indian PCC.",
+  },
+  {
+    q: "Do you provide help with Indian Passport Renewal?",
+    a: "Yes, we assist in preparing and organizing the documents required for Indian Passport Renewal.",
+  },
+  {
+    q: "Can you help with OCI (Overseas Citizen of India) Card applications?",
+    a: "We provide documentation support and guidance for OCI card applications.",
+  },
+  {
+    q: "Do you assist with Indian E-visa applications?",
+    a: "Yes, we guide applicants through the required documentation for Indian E-visa applications.",
+  },
 ]
 
 export function FAQPreview() {
