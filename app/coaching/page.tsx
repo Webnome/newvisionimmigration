@@ -76,14 +76,14 @@ export default function CoachingPage() {
             <a href="/start-application" className="px-4 py-2 rounded-md btn-gradient">
               Enroll (In-Person)
             </a>
-            <a
+            {/* <a
               href="https://wa.me/919000000000?text=I%20want%20to%20speak%20to%20a%20trainer%20about%20batches"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-md border border-brand text-brand hover:bg-brand/5"
             >
               Speak to a Trainer
-            </a>
+            </a> */}
           </div>
         </section>
 
