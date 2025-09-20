@@ -2,10 +2,23 @@
 
 import { useEffect, useState } from "react"
 
+// const reviews = [
+//   { name: "Aarav (Canada)", rating: 5, text: "Smooth documentation and timely updates. Highly recommended!" },
+//   { name: "Meera (IELTS 7.5)", rating: 5, text: "Great strategies and practice plans. Scored beyond my target." },
+//   // { name: "Dylan (UK)", rating: 5, text: "Clear guidance for my work visa process." },
+// ]
+
 const reviews = [
-  { name: "Aarav (Canada)", rating: 5, text: "Smooth documentation and timely updates. Highly recommended!" },
-  { name: "Meera (IELTS 7.5)", rating: 5, text: "Great strategies and practice plans. Scored beyond my target." },
-  // { name: "Dylan (UK)", rating: 5, text: "Clear guidance for my work visa process." },
+  { name: "Rahul Sharma (IELTS 8, Canada)", rating: 5, text: "Got 8 bands in IELTS with their coaching. Canada study visa approved easily. Highly recommended!" },
+  { name: "Priya Gupta (PTE 79+, Canada)", rating: 5, text: "Best PTE training institute. Achieved 79+ score and Canada visa. Thanks!" },
+  { name: "Karan Singh (IELTS 7.5, Canada)", rating: 5, text: "IELTS coaching was excellent. 7.5 bands achieved and Canada college visa approved." },
+  { name: "Simran Kaur (PTE, Canada)", rating: 5, text: "PTE guidance helped me score well. Canada study visa in first attempt. Great institute!" },
+  { name: "Rohit Kumar (IELTS 8, Canada)", rating: 5, text: "IELTS coaching made it easy. 8 bands and Canada study permit approved." },
+  { name: "Neha Sharma (PTE, Canada)", rating: 5, text: "Canada student visa after PTE coaching. Institute is very supportive." },
+  { name: "Aman Goyal (IELTS 8, Canada)", rating: 5, text: "IELTS 8 bands with their help. Canada study visa in 2 weeks. Amazing!" },
+  { name: "Gurleen Kaur (PTE, Canada)", rating: 5, text: "PTE training was excellent. Canada college visa approved quickly. Thanks!" },
+  { name: "Vikram Singh (IELTS, Canada)", rating: 5, text: "Canada study visa after IELTS coaching. Institute has best trainers." },
+  { name: "Jaspreet Kaur (IELTS, Canada)", rating: 5, text: "Best IELTS institute ever. Canada university visa approved easily. Recommended!" },
 ]
 
 export function ReviewsCarousel() {
