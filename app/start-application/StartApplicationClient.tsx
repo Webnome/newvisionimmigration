@@ -35,30 +35,42 @@ export default function StartApplicationClient() {
     const apiUrl = `${process.env.NEXT_PUBLIC_API_PUBLIC_URL}/application-form/`;
     console.log("API URL:", apiUrl); // Log the API URL for debugging
 
-    const inquiryData = {
-      Service: service || (isIndian ? "Indian Services" : ""),
-      "Option selected": sub || "",
-      Name: form.name,
-      Email: form.email,
-      "Mobile No": form.mobile,
-      Country: form.country,
-      "Preferred time": schedule.date && schedule.time ? `${schedule.date} ${schedule.time}` : "",
-      Notes: form.notes,
+    const inquiryData: { [key: string]: any } = {
+      service: service || (isIndian ? "Indian Services" : ""),
+      option_selected: sub || "",
+      name: form.name,
+      email: form.email,
+      mobile_no: form.mobile,
+      country: form.country,
+      preferred_time: schedule.date && schedule.time ? `${schedule.date} ${schedule.time}` : "",
+      notes: form.notes,
+      document_base64: [],
+      document_filename: [],
     };
-    
-    const formData = new FormData();
-    formData.append('form_data', JSON.stringify(inquiryData));
 
-    actualFiles.forEach((file) => {
-      formData.append('Documents', file, file.name);
-    });
-
+    if (actualFiles.length > 0) {
+      const base64Documents = await Promise.all(
+        actualFiles.map((file) => {
+          return new Promise<string>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = (error) => reject(error);
+          });
+        })
+      );
+      inquiryData.document_base64 = base64Documents.map(base64String => base64String.split(',')[1]); // Extract base64 content
+      inquiryData.document_filename = actualFiles.map(file => file.name);
+    }
 
     try {
       console.log("Sending application form data...");
       const response = await fetch(apiUrl, {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inquiryData),
       });
 
       const result = await response.json();
