@@ -88,7 +88,6 @@ export default function StartApplicationClient() {
           title: "Success",
           description: result.message,
         });
-        localStorage.removeItem("nv-wizard");
         setSubmitted(true);
       }
     } catch (error) {
@@ -102,19 +101,7 @@ export default function StartApplicationClient() {
   }
 
   useEffect(() => {
-    const saved = localStorage.getItem("nv-wizard")
-    if (saved) {
-      try {
-        const v = JSON.parse(saved)
-        setStep(v.step ?? 1)
-        setService(v.service ?? "")
-        setSub(v.sub ?? "")
-        setForm(v.form ?? form)
-        setDocs(v.docs ?? [])
-        setActualFiles(v.actualFiles ?? []) // Load actual files from local storage
-        setSchedule(v.schedule ?? {})
-      } catch {}
-    }
+    localStorage.removeItem("nv-wizard"); // Clear data on every page load/refresh
     try {
       const params = new URLSearchParams(window.location.search)
       const svc = params.get("service")
@@ -130,9 +117,6 @@ export default function StartApplicationClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useEffect(() => {
-    localStorage.setItem("nv-wizard", JSON.stringify({ step, service, sub, form, docs, actualFiles, schedule }))
-  }, [step, service, sub, form, docs, actualFiles, schedule])
 
   const progress = useMemo(() => (({ 1: 20, 2: 40, 3: 60, 4: 80, 5: 100 }) as const)[step], [step])
   const isIndian = service === "Indian Services"
