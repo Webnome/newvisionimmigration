@@ -30,7 +30,7 @@ export default function SuccessResultsPage() {
       .then((data: Item[]) => setItems(data))
   }, [])
 
-  const filtered = useMemo(() => (filter === "All" ? items : items.filter((i) => i.category === filter)), [filter])
+  const filtered = useMemo(() => (filter === "All" ? items : items.filter((i) => i.category === filter)), [filter, items])
 
   const counts = useMemo(() => {
     return {
