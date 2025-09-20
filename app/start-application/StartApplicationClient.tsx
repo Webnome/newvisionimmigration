@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import FileUploader from "../../components/file-uploader"
 import { se } from "date-fns/locale"
+import { toast } from "../../components/ui/use-toast"
 
 type Service = "Visa" | "IELTS" | "PTE" | "Spoken English" | "Indian Services"
 const subOptions: Record<Service, string[]> = {
@@ -14,6 +15,9 @@ const subOptions: Record<Service, string[]> = {
 }
 type Step = 1 | 2 | 3 | 4 | 5
 type UploadedFile = { name: string; url: string; size: number; type: string }
+type ActualFile = File // Define a type for actual File objects
+
+
 
 export default function StartApplicationClient() {
   const [step, setStep] = useState<Step>(1)
@@ -23,8 +27,67 @@ export default function StartApplicationClient() {
   const [emailError, setEmailError] = useState<string | null>(null)
   const [schedule, setSchedule] = useState<{ date?: string; time?: string }>({})
   const [docs, setDocs] = useState<UploadedFile[]>([])
+  const [actualFiles, setActualFiles] = useState<ActualFile[]>([]) // New state for actual File objects
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState("");
+
+  async function submitApplicationForm() {
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_PUBLIC_URL}/application-form/`;
+    console.log("API URL:", apiUrl); // Log the API URL for debugging
+
+    const inquiryData = {
+      Service: service || (isIndian ? "Indian Services" : ""),
+      "Option selected": sub || "",
+      Name: form.name,
+      Email: form.email,
+      "Mobile No": form.mobile,
+      Country: form.country,
+      "Preferred time": schedule.date && schedule.time ? `${schedule.date} ${schedule.time}` : "",
+      Notes: form.notes,
+    };
+    
+    const formData = new FormData();
+    formData.append('form_data', JSON.stringify(inquiryData));
+
+    actualFiles.forEach((file) => {
+      formData.append('Documents', file, file.name);
+    });
+
+
+    try {
+      console.log("Sending application form data...");
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error('Server responded with an error:', result);
+        toast({
+          title: "Error",
+          description: result.detail || 'An unknown error occurred.',
+          variant: "destructive",
+        });
+      } else {
+        console.log('Server response:', result);
+        toast({
+          title: "Success",
+          description: result.message,
+        });
+        localStorage.removeItem("nv-wizard");
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error('An error occurred while sending the form:', error);
+      toast({
+        title: "Error",
+        description: 'Failed to submit the form. Please check your connection and try again.',
+        variant: "destructive",
+      });
+    }
+  }
 
   useEffect(() => {
     const saved = localStorage.getItem("nv-wizard")
@@ -36,6 +99,7 @@ export default function StartApplicationClient() {
         setSub(v.sub ?? "")
         setForm(v.form ?? form)
         setDocs(v.docs ?? [])
+        setActualFiles(v.actualFiles ?? []) // Load actual files from local storage
         setSchedule(v.schedule ?? {})
       } catch {}
     }
@@ -55,8 +119,8 @@ export default function StartApplicationClient() {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem("nv-wizard", JSON.stringify({ step, service, sub, form, docs, schedule }))
-  }, [step, service, sub, form, docs, schedule])
+    localStorage.setItem("nv-wizard", JSON.stringify({ step, service, sub, form, docs, actualFiles, schedule }))
+  }, [step, service, sub, form, docs, actualFiles, schedule])
 
   const progress = useMemo(() => (({ 1: 20, 2: 40, 3: 60, 4: 80, 5: 100 }) as const)[step], [step])
   const isIndian = service === "Indian Services"
@@ -248,22 +312,21 @@ export default function StartApplicationClient() {
                 <p className="text-sm text-[#606F85]">
                   Add any supporting documents (passport, ID, scorecards, financials). You can upload multiple files.
                 </p>
-                <FileUploader onUploaded={(files) => setDocs(files)} accept=".pdf,.jpg,.jpeg,.png,.webp" maxFiles={8} />
-                {docs?.length > 0 && (
+                <FileUploader
+                  onFilesSelected={(files) => setActualFiles(files)} // Store actual File objects
+                  accept=".pdf,.jpg,.jpeg,.png,.webp"
+                  maxFiles={8}
+                />
+                {actualFiles?.length > 0 && (
                   <div className="rounded-md bg-neutral-50 border p-3">
-                    <h3 className="text-sm font-medium">Selected ({docs.length})</h3>
+                    <h3 className="text-sm font-medium">Selected ({actualFiles.length})</h3>
                     <ul className="mt-2 space-y-1 text-sm">
-                      {docs.map((d) => (
-                        <li key={d.url} className="flex items-center justify-between">
-                          <a
-                            href={d.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[#0061FF] hover:text-[#1E90FF]"
-                          >
-                            {d.name}
-                          </a>
-                          <span className="text-ink/60">{(d.size / 1024).toFixed(1)} KB</span>
+                      {actualFiles.map((f, index) => (
+                        <li key={index} className="flex items-center justify-between">
+                          <span className="text-[#1E2E5A]">
+                            {f.name}
+                          </span>
+                          <span className="text-ink/60">{(f.size / 1024).toFixed(1)} KB</span>
                         </li>
                       ))}
                     </ul>
@@ -276,7 +339,7 @@ export default function StartApplicationClient() {
                   <button
                     className="btn-primary disabled:opacity-50"
                     onClick={() => setStep(4)}
-                    disabled={docs.length === 0}
+                    disabled={actualFiles.length === 0}
                   >
                     Continue
                   </button>
@@ -351,20 +414,15 @@ export default function StartApplicationClient() {
                   </div>
                   <div className="mt-2">
                     <strong>Documents:</strong>{" "}
-                    {docs.length > 0 ? `${docs.length} file${docs.length > 1 ? "s" : ""}` : "None attached"}
+                    {actualFiles.length > 0 ? `${actualFiles.length} file${actualFiles.length > 1 ? "s" : ""}` : "None attached"}
                   </div>
-                  {docs.length > 0 && (
+                  {actualFiles.length > 0 && (
                     <ul className="mt-2 list-disc pl-5">
-                      {docs.map((d) => (
-                        <li key={d.url}>
-                          <a
-                            href={d.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[#0061FF] hover:text-[#1E90FF]"
-                          >
-                            {d.name}
-                          </a>
+                      {actualFiles.map((f, index) => (
+                        <li key={index}>
+                          <span className="text-[#1E2E5A]">
+                            {f.name}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -378,11 +436,7 @@ export default function StartApplicationClient() {
                     Back
                   </button>
                   <button
-                    onClick={() => {
-                      console.log("[v0] Application submitted", { service, sub, form, docs, schedule })
-                      localStorage.removeItem("nv-wizard")
-                      setSubmitted(true)
-                    }}
+                    onClick={submitApplicationForm}
                     className="btn-primary"
                   >
                     Submit application
