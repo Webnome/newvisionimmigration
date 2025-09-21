@@ -7,6 +7,7 @@ export default function ContactForm() {
   const nameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const messageRef = useRef<HTMLTextAreaElement>(null)
+  const mobileRef = useRef<HTMLTextAreaElement>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -14,19 +15,21 @@ export default function ContactForm() {
     const name = nameRef.current?.value
     const email = emailRef.current?.value
     const message = messageRef.current?.value
+    const mobile = mobileRef.current?.value
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !mobile) {
       alert("Please fill in all fields.")
       return
     }
-
+    const siteURL=process.env.NEXT_PUBLIC_API_PUBLIC_URL  || 'http://localhost:8001'
+    
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_PUBLIC_URL}/contact-query/`, {
+      const response = await fetch(`${siteURL}/contact-query/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ Name: name, Email: email, Message: message }),
+        body: JSON.stringify({ Name: name, Email: email, Message: message, Mobile: mobile }),
       })
 
       if (response.ok) {
@@ -64,6 +67,17 @@ export default function ContactForm() {
         />
       </div>
       <div>
+        <label className="block text-sm font-medium">Mobile No</label>
+        <input
+          type="tel"
+          required
+          className="mt-1 w-full rounded-md border px-3 py-2"
+          placeholder="123456789"
+          maxLength={10}  // restricts input to 10 digits
+          ref={mobileRef}
+        />
+      </div>
+      <div>
         <label className="block text-sm font-medium">Message</label>
         <textarea
           rows={5}
@@ -73,6 +87,7 @@ export default function ContactForm() {
           ref={messageRef}
         />
       </div>
+
       <button type="submit" className="px-4 py-2 rounded-md bg-secondary text-white">
         Send
       </button>

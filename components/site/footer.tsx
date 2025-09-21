@@ -51,6 +51,11 @@ export function Footer() {
               </a>
             </li>
             <li>
+              <a href="mailto:yogita@newvisionimmi.com" className="hover:underline">
+                yogita@newvisionimmi.com
+              </a>
+            </li>
+            <li>
             <a href="tel:+918708962314" className="hover:underline">
               +91 87089 62314
             </a>

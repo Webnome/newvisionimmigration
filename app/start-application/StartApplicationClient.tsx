@@ -32,7 +32,8 @@ export default function StartApplicationClient() {
   const [error, setError] = useState("");
 
   async function submitApplicationForm() {
-    const apiUrl = `${process.env.NEXT_PUBLIC_API_PUBLIC_URL}/application-form/`;
+    const siteURL=process.env.NEXT_PUBLIC_API_PUBLIC_URL  || 'http://localhost:8001'
+    const apiUrl = `${siteURL}/application-form/`;
     console.log("API URL:", apiUrl); // Log the API URL for debugging
 
     const inquiryData: { [key: string]: any } = {
@@ -335,7 +336,7 @@ export default function StartApplicationClient() {
                   <button
                     className="btn-primary disabled:opacity-50"
                     onClick={() => setStep(4)}
-                    disabled={actualFiles.length === 0}
+                    // disabled={actualFiles.length === 0}
                   >
                     Continue
                   </button>
