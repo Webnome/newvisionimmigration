@@ -19,7 +19,7 @@ export function Hero() {
               Book a Free Consultation
             </Link>
           </div>
-          <div className="mt-6 text-sm text-ink/60">5,000+ Clients • 95% Success • 10+ Years Experience</div>
+          <div className="mt-6 text-sm text-ink/60">5,000+ Clients • 95% Success • 7+ Years Experience</div>
         </div>
         <div
           className="relative aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden bg-white border shadow-inner"

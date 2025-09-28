@@ -35,9 +35,9 @@ export function IndianServices() {
           </Link>
         </div>
         <div className="rounded-xl border p-5 bg-[#a5b7ea]">
-          <h4 className="font-semibold text-[#2464a8]">Other Indian Services</h4>
+          <h4 className="font-semibold text-[#2464a8]">Indian Services Foreigners</h4>
           <p className="mt-2 text-sm text-white">
-            Power of Attorney, Affidavits, Certificates, and Driver License Verification guidance.
+            Driver License Verification guidance. Indian Services for Foreigners
           </p>
           <Link href="/services/india/other" className="mt-3 inline-flex text-[#0061FF] hover:underline">
             Learn more →

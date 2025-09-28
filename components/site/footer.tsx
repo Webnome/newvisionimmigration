@@ -26,6 +26,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/services/india" className="hover:underline">
+                Indian Services
+              </Link>
+            </li>
+            <li>
               <Link href="/success-results" className="hover:underline">
                 Success Results
               </Link>
@@ -99,7 +104,7 @@ export function Footer() {
       </div>
       <div className="border-t">
         <div className="container-balanced py-4 text-xs text-ink/70">
-          © {new Date().getFullYear()} Newvisionimmi. All rights reserved.
+          © 2023 Newvisionimmi. All rights reserved.
         </div>
       </div>
     </footer>

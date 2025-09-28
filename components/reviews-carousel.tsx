@@ -19,6 +19,14 @@ const reviews = [
   { name: "Gurleen Kaur (PTE, Canada)", rating: 5, text: "PTE training was excellent. Canada college visa approved quickly. Thanks!" },
   { name: "Vikram Singh (IELTS, Canada)", rating: 5, text: "Canada study visa after IELTS coaching. Institute has best trainers." },
   { name: "Jaspreet Kaur (IELTS, Canada)", rating: 5, text: "Best IELTS institute ever. Canada university visa approved easily. Recommended!" },
+  { name: "Amit Sharma (Visa to India)", rating: 5, text: "Amazing communication and fast turnaround, would recommend for any Visa needs to India." },
+  { name: "Priya Patel (Visa)", rating: 5, text: "I got my visa within 48 hours and the team member communicated with me at each step. Awesome service by New Vision." },
+  { name: "Rahul Verma (Renunciation/OCI)", rating: 5, text: "I am really happy with the whole process around the renunciation/OCI requirements. Thank you Yogita for smooth and clear process." },
+  { name: "Sneha Gupta (Visa)", rating: 5, text: "Our documents were complete, we spent max. 5 minutes for me and my wife. Visa payment took 1 minute. Thank god we got this place." },
+  { name: "Vikram Singh (General Service)", rating: 5, text: "Fast and quick service." },
+  { name: "Anjali Desai (Passport)", rating: 5, text: "Smooth documentation and got error-free new passport." },
+  { name: "Rohan Kapoor (OCI Update)", rating: 5, text: "I was really worried about getting name change on my OCI card. Their team made the process so simple and fast. If you need to apply for updation on OCI card. Very helpful and professional staff, I highly recommend them." },
+  { name: "Meera Joshi (PCC)", rating: 5, text: "New Vision advice really helped me in getting the PCC. Their communication was good and timely." }
 ]
 
 export function ReviewsCarousel() {

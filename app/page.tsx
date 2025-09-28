@@ -8,7 +8,7 @@ import { FAQPreview } from "@/components/faq"
 import { FinalCTA } from "@/components/cta-band"
 
 export const metadata = {
-  title: "Newvisionimmi | Visa & Coaching Experts",
+  title: "Newvisionimmi | Visa, Coaching & Documentation Experts for Your Next Move",
   description: "From IELTS/PTE coaching to visas—complete support, stress-free.",
 }
 
