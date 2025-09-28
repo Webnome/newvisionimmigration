@@ -47,9 +47,9 @@ export default function IndianServicesPage() {
             </a>
           </article>
           <article className="rounded-xl border bg-white p-6">
-            <h3 className="text-xl font-semibold text-[#1E2E5A]">Other Indian Services</h3>
+            <h3 className="text-xl font-semibold text-[#1E2E5A]">Indian Services Foreigners</h3>
             <p className="mt-1 text-[#606F85]">
-              Power of Attorney, Affidavits, Certificates, and Driver License Verification guidance.
+            Driver License Verification guidance. Indian Services for Foreigners
             </p>
             <a href="/services/india/other" className="mt-3 inline-flex text-[#0061FF] hover:text-[#1E90FF] text-sm">
               Learn more →
